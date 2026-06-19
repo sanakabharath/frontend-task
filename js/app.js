@@ -2,147 +2,91 @@
 
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", function (e) {
+if (form) {
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-    const name =
-        document.getElementById("name").value.trim();
+        if (!name || !email || !message) {
+            alert("Please fill all fields.");
+            return;
+        }
 
-    const email =
-        document.getElementById("email").value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const message =
-        document.getElementById("message").value.trim();
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email.");
+            return;
+        }
 
-    if (
-        name === "" ||
-        email === "" ||
-        message === ""
-    ) {
-        alert("Please fill all fields.");
-        return;
-    }
-
-    const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailPattern.test(email)) {
-        alert("Please enter a valid email.");
-        return;
-    }
-
-    alert("Message Sent Successfully!");
-    form.reset();
-});
-
-
-// ================= DARK MODE =================
-
-const themeBtn =
-    document.getElementById("theme-btn");
-
-themeBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark")
-    );
-});
-
-if (
-    localStorage.getItem("theme") === "true"
-) {
-    document.body.classList.add("dark");
+        alert("Message Sent Successfully!");
+        form.reset();
+    });
 }
-
-
-// ================= HAMBURGER MENU =================
-
-const hamburger =
-    document.querySelector(".hamburger");
-
-const navLinks =
-    document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-});
-
 
 // ================= BLOG API =================
 
-async function loadBlogs() {
+const blogContainer = document.getElementById("blogContainer");
+const loading = document.getElementById("loading");
+const error = document.getElementById("error");
 
-    const container =
-        document.getElementById("blogContainer");
+function loadBlogs() {
 
-    if (!container) return;
+    if (!blogContainer) return;
 
-    container.innerHTML =
-        "<p>Loading articles...</p>";
+    loading.style.display = "block";
+    error.innerText = "";
+    blogContainer.innerHTML = "";
 
-    try {
+    const blogs = [
+        {
+            title: "Productivity Tips",
+            description: "Discover practical ways to improve productivity and complete tasks more efficiently."
+        },
+        {
+            title: "Project Management Guide",
+            description: "Learn how to organize projects, monitor progress, and achieve successful outcomes."
+        },
+        {
+            title: "Team Collaboration Strategies",
+            description: "Explore methods to improve communication and teamwork in modern organizations."
+        },
+        {
+            title: "Work Efficiency Techniques",
+            description: "Understand techniques that help you complete tasks faster and improve performance."
+        },
+        {
+            title: "Remote Work Best Practices",
+            description: "Learn essential practices for staying productive while working remotely."
+        },
+        {
+            title: "Building Better Habits",
+            description: "Develop positive habits that improve productivity, discipline, and personal growth."
+        }
+    ];
 
-        await fetch(
-            "https://jsonplaceholder.typicode.com/posts"
-        );
+    setTimeout(() => {
 
-        const blogs = [
-            "Productivity Tips",
-            "Project Management Guide",
-            "Team Collaboration Strategies",
-            "Work Efficiency Techniques",
-            "Remote Work Best Practices",
-            "Building Better Habits"
-        ];
+        loading.style.display = "none";
 
-        container.innerHTML = "";
+        blogs.forEach(blog => {
 
-        blogs.forEach(title => {
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-            container.innerHTML += `
-                <div class="card">
-                    <div class="icon">📝</div>
-                    <h3>${title}</h3>
-                    <p>
-                        Learn practical strategies to improve productivity,
-                        collaborate effectively, and manage projects
-                        successfully with TaskFlow.
-                    </p>
-                </div>
+            card.innerHTML = `
+                <div class="icon">📝</div>
+                <h3>${blog.title}</h3>
+                <p>${blog.description}</p>
             `;
+
+            blogContainer.appendChild(card);
         });
 
-    }
-    catch (error) {
-
-        container.innerHTML =
-            "<p>Unable to load articles. Please try again later.</p>";
-    }
+    }, 500);
 }
 
 loadBlogs();
-// ================= PRICING PLAN SELECT =================
-
-const plans =
-document.querySelectorAll(".price-card");
-
-plans.forEach(plan => {
-
-    const button =
-    plan.querySelector("button");
-
-    button.addEventListener("click", () => {
-
-        plans.forEach(p =>
-            p.classList.remove("active")
-        );
-
-        plan.classList.add("active");
-
-    });
-
-});

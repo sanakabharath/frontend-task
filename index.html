@@ -27,182 +27,205 @@
 
             <button
                 id="theme-btn"
+                type="button"
                 aria-label="Toggle Dark Mode">
                 🌙
             </button>
 
             <div
                 class="hamburger"
-                aria-label="Open Menu">
+                aria-label="Open Menu"
+                tabindex="0">
                 ☰
             </div>
 
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <main>
 
-        <div class="hero-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
 
-            <h1>Manage Your Work Efficiently</h1>
+            <div class="hero-content">
 
-            <p>
-                Organize projects, track progress,
-                and collaborate with your team
-                using TaskFlow.
+                <h1>Manage Your Work Efficiently</h1>
+
+                <p>
+                    Organize projects, track progress,
+                    and collaborate with your team
+                    using TaskFlow.
+                </p>
+
+                <a href="#pricing">
+                    <button
+                        class="cta-btn"
+                        type="button">
+                        Get Started
+                    </button>
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700"
+                    alt="TaskFlow Dashboard"
+                    loading="lazy">
+
+            </div>
+
+        </section>
+
+        <!-- Features -->
+        <section class="features" id="features">
+
+            <h2 class="section-title">
+                Our Features
+            </h2>
+
+            <div class="features-grid">
+
+                <div class="card">
+                    <div class="icon">📊</div>
+                    <h3>Analytics</h3>
+                    <p>Track project performance and productivity.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔔</div>
+                    <h3>Notifications</h3>
+                    <p>Stay updated with real-time alerts.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">👥</div>
+                    <h3>Team Management</h3>
+                    <p>Manage teams and assign tasks easily.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📄</div>
+                    <h3>Reports</h3>
+                    <p>Create reports and monitor progress.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔒</div>
+                    <h3>Security</h3>
+                    <p>Protect your data with secure access.</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">☁️</div>
+                    <h3>Cloud Sync</h3>
+                    <p>Access your projects from anywhere.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing" id="pricing">
+
+            <h2 class="section-title">
+                Pricing Plans
+            </h2>
+
+            <div class="pricing-grid">
+
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <h1>₹499</h1>
+                    <p>Per Month</p>
+                    <button type="button">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Professional</h3>
+                    <h1>₹999</h1>
+                    <p>Per Month</p>
+                    <button type="button">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <h1>₹1,999</h1>
+                    <p>Per Month</p>
+                    <button type="button">
+                        Choose Plan
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Blogs -->
+        <section class="blogs" id="blogs">
+
+            <h2 class="section-title">
+                Latest Blogs
+            </h2>
+
+            <p id="loading">
+                Loading blogs...
             </p>
 
-            <button class="cta-btn">
-                Get Started
-            </button>
+            <p id="error"></p>
 
-        </div>
+            <div id="blogContainer">
 
-        <div class="hero-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700"
-                alt="TaskFlow Dashboard"
-                loading="lazy">
-
-        </div>
-
-    </section>
-
-    <!-- Features -->
-    <section class="features" id="features">
-
-        <h2 class="section-title">
-            Our Features
-        </h2>
-
-        <div class="features-grid">
-
-            <div class="card">
-                <div class="icon">📊</div>
-                <h3>Analytics</h3>
-                <p>Track project performance and productivity.</p>
             </div>
 
-            <div class="card">
-                <div class="icon">🔔</div>
-                <h3>Notifications</h3>
-                <p>Stay updated with real-time alerts.</p>
-            </div>
+        </section>
 
-            <div class="card">
-                <div class="icon">👥</div>
-                <h3>Team Management</h3>
-                <p>Manage teams and assign tasks easily.</p>
-            </div>
+        <!-- Contact -->
+        <section class="contact" id="contact">
 
-            <div class="card">
-                <div class="icon">📄</div>
-                <h3>Reports</h3>
-                <p>Create reports and monitor progress.</p>
-            </div>
+            <h2 class="section-title">
+                Contact Us
+            </h2>
 
-            <div class="card">
-                <div class="icon">🔒</div>
-                <h3>Security</h3>
-                <p>Protect your data with secure access.</p>
-            </div>
+            <form id="contactForm">
 
-            <div class="card">
-                <div class="icon">☁️</div>
-                <h3>Cloud Sync</h3>
-                <p>Access your projects from anywhere.</p>
-            </div>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    aria-label="Name"
+                    required>
 
-        </div>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    aria-label="Email"
+                    required>
 
-    </section>
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Enter your message"
+                    aria-label="Message"
+                    required>
+                </textarea>
 
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
+                <button type="submit">
+                    Send Message
+                </button>
 
-        <h2 class="section-title">
-            Pricing Plans
-        </h2>
+            </form>
 
-        <div class="pricing-grid">
+        </section>
 
-            <div class="price-card">
-                <h3>Starter</h3>
-                <h1>₹499</h1>
-                <p>Per Month</p>
-                <button>Choose Plan</button>
-            </div>
-
-            <div class="price-card">
-                <h3>Professional</h3>
-                <h1>₹999</h1>
-                <p>Per Month</p>
-                <button>Choose Plan</button>
-            </div>
-
-            <div class="price-card">
-                <h3>Enterprise</h3>
-                <h1>₹1,999</h1>
-                <p>Per Month</p>
-                <button>Choose Plan</button>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Blogs -->
-    <section class="blogs" id="blogs">
-
-        <h2 class="section-title">
-            Insights & Articles
-        </h2>
-
-        <div
-            id="blogContainer"
-            class="features-grid">
-
-        </div>
-
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-
-        <h2 class="section-title">
-            Contact Us
-        </h2>
-
-        <form id="contactForm">
-
-            <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                aria-label="Name">
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                aria-label="Email">
-
-            <textarea
-                id="message"
-                rows="6"
-                placeholder="Enter your message"
-                aria-label="Message">
-            </textarea>
-
-            <button type="submit">
-                Send Message
-            </button>
-
-        </form>
-
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>

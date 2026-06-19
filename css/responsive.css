@@ -1,0 +1,82 @@
+@media (max-width: 768px) {
+
+    nav{
+        padding:20px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:40px;
+    }
+
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    .features{
+        padding:40px 20px;
+    }
+
+    .pricing{
+        padding:40px 20px;
+    }
+
+    .contact{
+        padding:40px 20px;
+    }
+
+    .features-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+
+    #contactForm{
+        width:100%;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:90px;
+        right:20px;
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.15);
+        gap:20px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .hamburger{
+        display:block;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:60px;
+    }
+
+    .features-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pricing-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    #contactForm{
+        width:80%;
+    }
+}
